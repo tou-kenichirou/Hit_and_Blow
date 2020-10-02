@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.hitblow.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_main_to_sub1"
+            app:enterAnim="@anim/slide_from_up"
+            app:exitAnim="@anim/slide_to_down"
+            app:popEnterAnim="@anim/slide_from_down"
+            app:popExitAnim="@anim/slide_to_up"
+            app:destination="@id/subFragment1" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/subFragment1"
+        android:name="com.example.hitblow.SubFragment1"
+        android:label="fragment_sub1"
+        tools:layout="@layout/fragment_sub1" >
+        <action
+            android:id="@+id/action_sub1_to_main"
+            app:enterAnim="@anim/slide_from_down"
+            app:exitAnim="@anim/slide_to_up"
+            app:popEnterAnim="@anim/slide_from_up"
+            app:popExitAnim="@anim/slide_to_down"
+            app:destination="@id/mainFragment" />
+    </fragment>
+
+</navigation>

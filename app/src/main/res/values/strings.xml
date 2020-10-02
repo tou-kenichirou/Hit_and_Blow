@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Hit&amp;Blow</string>
+    <string name="back_button">Back</string>
+    <string name="text_xl">XL</string>
+    <string name="text_l">L</string>
+    <string name="text_m">M</string>
+    <string name="text_s">S</string>
+    <string name="text_xs">XS</string>
+    <string name="down10">-10</string>
+    <string name="down">-</string>
+    <string name="up10">+10</string>
+    <string name="up">+</string>
+    <string name="sub1">Start</string>
+    <string name="check_button">check</string>
+    <string name="hit_and_blow"><![CDATA[Hit & Blow!!]]></string>
+    <string name="topMessage">What is this number?</string>
+    <string name="question">?</string>
+
+    <string-array name="abnormality_spinner">
+        <item> </item>
+        <item>O–03–03</item>
+    </string-array>
+</resources>
