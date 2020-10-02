@@ -20,8 +20,22 @@ class SubFragment1 : Fragment(){
     private var count2 = 0
     private var count3 = 0
     private var count4 = 0
+
+    // questionの停止判定
+    private var stop1 = false
+    private var stop2 = false
+    private var stop3 = false
+    private var stop4 = false
+
+    // countの停止判定
+    private var stopCount1 = false
+    private var stopCount2 = false
+    private var stopCount3 = false
+    private var stopCount4 = false
+
     private var hitCount = 0
     private var blowCount = 0
+    private var checkCount = 0
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -110,29 +124,94 @@ class SubFragment1 : Fragment(){
 
         // check_button
         total_button.setOnClickListener{
-            // count1の比較
+            // count1の成否
             if (count1 == no1){
                 hitCount ++
-            }else if(count1 == no2 || count1 == no3 || count1 == no4){
-                blowCount ++
+                stop1 = true
+                stopCount1 = true
             }
-            // count2の比較
+            // count2の成否
             if (count2 == no2){
                 hitCount ++
-            }else if(count2 == no1 || count2 == no3 || count2 == no4){
-                blowCount ++
+                stop2 = true
+                stopCount2 = true
             }
-            // count3の比較
+            // count3の成否
             if (count3 == no3){
                 hitCount ++
-            }else if(count3 == no1 || count3 == no2 || count3 == no4){
-                blowCount ++
+                stop3 = true
+                stopCount3 = false
             }
-            // count4の比較
+            // count4の成否
             if (count4 == no4){
                 hitCount ++
-            }else if(count4 == no1 || count4 == no2 || count4 == no3){
+                stop4 = true
+                stopCount4 = false
+            }
+
+
+            if (!stop1 && !stopCount2 && count2 == no1){
                 blowCount ++
+                stop1 = true
+                stopCount2 = true
+            }
+            if (!stop1 && !stopCount3 && count3 == no1){
+                blowCount ++
+                stop1 = true
+                stopCount3 = true
+            }
+            if (!stop1 && !stopCount4 && count4 == no1){
+                blowCount ++
+                stop1 = true
+                stopCount4 = true
+            }
+
+            if (!stop2 && !stopCount1 && count1 == no2){
+                blowCount ++
+                stop2 = true
+                stopCount1 = true
+            }
+            if (!stop2 && !stopCount3 && count3 == no2){
+                blowCount ++
+                stop2 = true
+                stopCount3 = true
+            }
+            if (!stop2 && !stopCount4 && count4 == no2){
+                blowCount ++
+                stop2 = true
+                stopCount4 = true
+            }
+
+            if (!stop3 && !stopCount1 && count1 == no3){
+                blowCount ++
+                stop3 = true
+                stopCount1 = true
+            }
+            if (!stop3 && !stopCount2 && count2 == no3){
+                blowCount ++
+                stop3 = true
+                stopCount2 = true
+            }
+            if (!stop3 && !stopCount4 && count4 == no3){
+                blowCount ++
+                stop3 = true
+                stopCount4 = true
+            }
+
+            if (!stop4 && !stopCount1 && count1 == no4){
+                blowCount ++
+                stop4 = true
+                stopCount1 = true
+            }
+            if (!stop4 && !stopCount2 && count2 == no4){
+                blowCount ++
+                stop4 = true
+                stopCount2 = true
+            }
+            if (!stop4 && !stopCount3 && count3 == no4){
+                blowCount ++
+                stop4 = true
+                stopCount3 = true
             }
 
             // count表示
@@ -141,12 +220,35 @@ class SubFragment1 : Fragment(){
 
             // 正解判定
             if (hitCount == 4){
-                question1.text = count1.toString()
-                question2.text = count2.toString()
-                question3.text = count3.toString()
-                question4.text = count4.toString()
+                question1.text = no1.toString()
+                question2.text = no2.toString()
+                question3.text = no3.toString()
+                question4.text = no4.toString()
                 success.text = "success!!"
             }
+
+            // checkCount
+            checkCount ++
+            check_count.text = checkCount.toString()
+
+            // 初期化
+            stop1 = false
+            stop2 = false
+            stop3 = false
+            stop4 = false
+            stopCount1 = false
+            stopCount2 = false
+            stopCount3 = false
+            stopCount4 = false
+            hitCount = 0
+            blowCount = 0
+
+            // debug
+           // question1.text = no1.toString()
+           // question2.text = no2.toString()
+           // question3.text = no3.toString()
+           // question4.text = no4.toString()
+
         }
     }
 }
